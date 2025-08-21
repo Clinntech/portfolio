@@ -6,7 +6,7 @@ function scrollToContact() {
   }
 }
 
-// ===== Scroll-to-top button toggle =====
+// ===== Scroll-to-top button toggle & nav highlight =====
 window.onscroll = function () {
   const topBtn = document.getElementById("topBtn");
   if (topBtn) {
@@ -36,4 +36,22 @@ window.onscroll = function () {
 // ===== Scroll to Top Function =====
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// ===== Mobile Nav Toggle =====
+const hamburger = document.getElementById("hamburger");
+const mainNav = document.querySelector("header nav");
+
+if (hamburger && mainNav) {
+  hamburger.addEventListener("click", () => {
+    mainNav.classList.toggle("active");
+  });
+
+  // Optional: close nav when clicking a link (good UX)
+  const navLinks = mainNav.querySelectorAll("a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("active");
+    });
+  });
 }
