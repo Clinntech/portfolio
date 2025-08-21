@@ -45,13 +45,16 @@ const mainNav = document.querySelector("header nav");
 if (hamburger && mainNav) {
   hamburger.addEventListener("click", () => {
     mainNav.classList.toggle("active");
+    hamburger.classList.toggle("open"); // optional if animating into X
   });
 
-  // Optional: close nav when clicking a link (good UX)
+  // Close menu when a nav link is clicked
   const navLinks = mainNav.querySelectorAll("a");
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       mainNav.classList.remove("active");
+      hamburger.classList.remove("open"); // reset hamburger state
     });
   });
 }
+
